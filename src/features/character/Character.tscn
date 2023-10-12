@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dnk4b3rnsudan"]
+
+[ext_resource type="Script" path="res://features/Character/character.gd" id="1_04tu0"]
+[ext_resource type="Texture2D" uid="uid://c12f5hc1utbvi" path="res://features/character/Body.PNG" id="2_ihec1"]
+[ext_resource type="PackedScene" uid="uid://cn822vdkqe7ae" path="res://features/character/Eyes.tscn" id="3_mrnsx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ijkaa"]
+radius = 201.09
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oycnj"]
+radius = 406.123
+
+[node name="Character" type="CharacterBody2D"]
+script = ExtResource("1_04tu0")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("2_ihec1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+zoom = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ijkaa")
+
+[node name="Eyes" parent="." instance=ExtResource("3_mrnsx")]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_oycnj")
