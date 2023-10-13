@@ -13,3 +13,8 @@ config_version=5
 config/name="Educational Genetics Game"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
+
+[gui]
+
+theme/custom="res://features/theme/theme.tres"
+theme/custom_font="res://features/theme/fonts/FiraCode-SemiBold.ttf"

@@ -1,0 +1,15 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://c2b3tygkc5ala"]
+
+[ext_resource type="StyleBox" uid="uid://c4fggtyf1map3" path="res://features/theme/styleboxes/panel_stylebox.tres" id="1_148d6"]
+[ext_resource type="Script" path="res://features/theme/theme.gd" id="2_ip3k4"]
+
+[resource]
+Panel/styles/panel = ExtResource("1_148d6")
+PanelContainer/styles/panel = ExtResource("1_148d6")
+script = ExtResource("2_ip3k4")
+bg = Color(0.156863, 0.211765, 0.0941176, 1)
+border = Color(0.866667, 0.631373, 0.368627, 1)
+A = Color(0, 1, 0, 1)
+G = Color(0, 0, 1, 1)
+T = Color(1, 0, 0, 1)
+C = Color(1, 0.647059, 0, 1)
