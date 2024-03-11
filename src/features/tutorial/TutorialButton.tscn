@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqsdp41emx105"]
+
+[ext_resource type="Script" path="res://features/tutorial/TutorialButton.gd" id="1_67ns2"]
+
+[node name="TutorialButton" type="Button"]
+text = "?"
+script = ExtResource("1_67ns2")
