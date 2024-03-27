@@ -9,11 +9,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_vtsxf"]
 radius = 32.0
 
-[node name="EntityGD" type="RigidBody2D" node_paths=PackedStringArray("initial_genotype")]
-freeze = true
-freeze_mode = 1
-max_contacts_reported = 16
-contact_monitor = true
+[node name="EntityGD" type="CharacterBody2D" node_paths=PackedStringArray("initial_genotype")]
 script = ExtResource("1_hgb48")
 initial_genotype = [NodePath("Loci 1"), NodePath("Loci 2")]
 
@@ -30,3 +26,10 @@ traits = Array[PackedScene]([ExtResource("4_ca6e3"), ExtResource("4_ca6e3")])
 [node name="Loci 2" type="Node" parent="."]
 script = ExtResource("3_j1edh")
 traits = Array[PackedScene]([ExtResource("4_5h72h")])
+
+[node name="Area" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+shape = SubResource("CircleShape2D_vtsxf")

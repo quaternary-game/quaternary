@@ -16,7 +16,7 @@ class_name TraitHerbivore extends TraitBase
 
 func _ready() -> void:
 	self.initialize()
-	self.entity.body_entered.connect(self._on_body_entered)
+	self.entity.area.body_entered.connect(self._on_body_entered)
 
 func _on_body_entered(body: Node) -> void:
 	if not (body is FoodHerbivore):

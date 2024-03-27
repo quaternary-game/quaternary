@@ -16,7 +16,11 @@ class_name TraitCalories extends TraitBase
 # ################### #
 
 ## An integer count that represents the number of calories the entity has
-@export var calories := 2000
+@export var calories := 2000:
+	set(value):
+		calories = value
+		if calories <= 0:
+			self.queue_free()
 
 
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://1l0l657ckwcv"]
+
+[ext_resource type="Script" path="res://features/genetics-gd/nodes/entity_traits/trait_territory.gd" id="1_anpxt"]
+[ext_resource type="PackedScene" uid="uid://d2g5rbkenk4ib" path="res://features/genetics-gd/nodes/environment_modifiers/spider_territory.tscn" id="2_w1fy8"]
+[ext_resource type="Texture2D" uid="uid://dmdxsx2sbfid7" path="res://features/genetics-gd/assets/none.svg" id="3_utyax"]
+
+[node name="TraitTerritory" type="Node2D"]
+script = ExtResource("1_anpxt")
+territory = ExtResource("2_w1fy8")
+unique_trait_name = "territory"
+display_name = "Territory"
+icon = ExtResource("3_utyax")
+loci = "behavior"
+dominance = 1

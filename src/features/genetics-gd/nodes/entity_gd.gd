@@ -1,4 +1,4 @@
-class_name EntityGD extends RigidBody2D
+class_name EntityGD extends CharacterBody2D
 
 
 # this needs to be configurable with genotype in mind
@@ -30,6 +30,8 @@ var phenotype := {}
 var ploidy : int = 2
 
 signal traits_changed
+
+@onready var area: Area2D = $Area 
  
 func _ready() -> void:
 	for l:Loci in self.initial_genotype:
@@ -60,12 +62,14 @@ func _add_trait(_new_trait: TraitBase, loci_index: int = 0) -> void:
 		
 	var dominant := dominant_trait_at_loci(_new_trait.loci)
 	for i:TraitBase in phenotype[_new_trait.loci]:
-		if not trait_is_in(_new_trait, dominant):
+		if not trait_is_in(i, dominant):
 			phenotype[_new_trait.loci].erase(i)
 			traits.erase(i.unique_trait_name)
-			i.queue_free()
+			self.remove_child(i)
+			if i not in genotype[_new_trait.loci]:
+				i.queue_free()
 	for i:TraitBase in dominant:
-		if not trait_is_in(_new_trait, phenotype[_new_trait.loci]) and not i is TraitNone:
+		if not trait_is_in(i, phenotype[_new_trait.loci]) and not i is TraitNone:
 			phenotype[_new_trait.loci].append(i)
 			traits[_new_trait.unique_trait_name] = _new_trait
 			self.add_child(i)
@@ -98,3 +102,9 @@ func remove_trait(loci: String, loci_index: int = 0) -> bool:
 	none.loci = loci
 	_add_trait(none, loci_index)
 	return true
+
+
+func death() -> void:
+	# might want to put a death animation here
+	#https://godotshaders.com/shader/transparent-noise-border/
+	self.queue_free()

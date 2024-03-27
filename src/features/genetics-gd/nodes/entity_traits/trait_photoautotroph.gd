@@ -32,8 +32,8 @@ var _light_bodies: Dictionary = {}
 func _ready() -> void:
 	self.initialize()
 	self.increment_rate_sec = self._deferred_increment_rate_sec
-	self.entity.body_entered.connect(self._on_body_entered)
-	self.entity.body_exited.connect(self._on_body_exited)
+	self.entity.area.body_entered.connect(self._on_body_entered)
+	self.entity.area.body_exited.connect(self._on_body_exited)
 
 func _on_body_entered(body: Node) -> void:
 	if not (body is LightDirected):
